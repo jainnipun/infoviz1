@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+</head>
+<title>Information Visualization</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {
+display:none;
+height:420px;
+
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+</style>
+<body>
+
+<div class="w3-container">
+  <h2>Information Visualization</h2>
+  <p>An example.</p>
+</div>
+
+<div class="w3-content" style="max-width:800px;">
+  <img class="mySlides" src="img1.png" >
+  <img class="mySlides" src="circos-sample-57.png">
+  <img class="mySlides" src="circos-sample-58.png">
+  <img class="mySlides" src="circos-sample-31.png">
+</div>
+
+<div class="w3-center">
+  <div class="w3-section">
+    <button class="w3-button w3-light-grey" onclick1="plusDivs(-1)">< Prev</button>
+    <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ></button>
+  </div>
+  <div id="buttons">
+  </div>
+  <a id="endhref" href="page_end.html"  />
+</div>
+
+<script>
+var slideIndex = 1;
+var startT = new Date();
+var numberscreated = false;
+var slidetimes = [];
+showDivs(slideIndex);
+
+function createNumbers() {
+	if(numberscreated == false)
+	{
+		var x = document.getElementsByClassName("mySlides");
+		for (i = 0; i < x.length; i++) {
+			var btndiv= document.getElementById("buttons");
+			var btn = document.createElement("BUTTON");
+			var t = document.createTextNode(i+1);
+			btn.className += "w3-button demo";
+			//btn.setAttribute("onclick", "currentDiv("+(i+1)+")");
+			btn.appendChild(t);
+			btndiv.appendChild(btn);
+		}
+	numberscreated = true;
+	}
+  
+}
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  createNumbers();
+      var endT = new Date();
+	  var total_time = endT - startT;
+	  if(n>1)
+	  {
+	  slidetimes[n-2] = total_time;
+	  	// alert("Time spent img "+(n-1)+" = "+total_time/1000 +" sec");
+	  }
+	  start = new Date()
+
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1
+    document.getElementById("endhref").click();
+  }    
+  if (n < 1) {
+  slideIndex = x.length
+}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  var dots = document.getElementsByClassName("demo");
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-red", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-red";
+  startT = new Date();
+}
+</script>
+
+</body>
+</html>
