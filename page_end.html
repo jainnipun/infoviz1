@@ -3,32 +3,41 @@
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
 </head>
-
 <title>Information Visualization</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
+.mySlides {
+display:none;
+height:450px;
+
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 </style>
 <body>
 
 <div class="w3-container">
-  <h2>Information Visualization Assignment 1 Pilot</h2>
+  <h2>Information Visualization</h2>
 </div>
 
 
 <div class="w3-center">
   <div class="w3-section">
-  <p>Start Experiment</p>
+  <p>Thank you for participating.</p><p>Experiment Ended</p>
    
-    <button class="w3-button w3-light-grey" onclick="start()">Start</button>
-	<a id="startref" href="page_experiment.html"/a>
+    <button class="w3-button w3-light-grey" onclick="startAgain()">Start Again</button>
+	<a id="startref" href="index.html"/a>
   </div>  
 </div>
 
 <script>
-function start()
+function startAgain()
 {
 document.getElementById("startref").click();
+
 }
 </script>
 
