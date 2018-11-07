@@ -23,16 +23,16 @@ height:420px;
 </div>
 
 <div class="w3-content" style="max-width:800px;">
-  <img class="mySlides" src="images/1.jpeg" >
-  <img class="mySlides" src="images/2.jpeg">
-  <img class="mySlides" src="images/3.jpeg">
-  <img class="mySlides" src="images/4.jpeg">
-  <img class="mySlides" src="images/5.jpeg">
-  <img class="mySlides" src="images/6.jpeg">
-  <img class="mySlides" src="images/7.jpeg">
-  <img class="mySlides" src="images/8.jpeg">
-  <img class="mySlides" src="images/9.jpeg">
-  <img class="mySlides" src="images/10.jpeg">
+  <img class="mySlides" src="images/1.jpeg" alt="Group A">
+  <img class="mySlides" src="images/2.jpeg" alt="Group B">
+  <img class="mySlides" src="images/3.jpeg" alt="Group A">
+  <img class="mySlides" src="images/4.jpeg" alt="Group B">
+  <img class="mySlides" src="images/5.jpeg" alt="Group A">
+  <img class="mySlides" src="images/6.jpeg" alt="Group B">
+  <img class="mySlides" src="images/7.jpeg" alt="Group A">
+  <img class="mySlides" src="images/8.jpeg" alt="Group B">
+  <img class="mySlides" src="images/9.jpeg" alt="Group A">
+  <img class="mySlides" src="images/10.jpeg" alt="Group B">
 </div>
 
 <div class="w3-center">
@@ -59,6 +59,7 @@ var slideIndex = 1;
 var startT = new Date();
 var numberscreated = false;
 var slidetimes = [];
+var slidetimeGroup = [];
 showDivs(slideIndex);
 function createNumbers() {
 	if(numberscreated == false)
@@ -84,22 +85,25 @@ function currentDiv(n) {
   showDivs(slideIndex = n);
 }
 function showDivs(n) {
+  var x = document.getElementsByClassName("mySlides");
+
   createNumbers();
       var endT = new Date();
 	  var total_time = endT - startT;
 	  if(n>1)
 	  {
 	  slidetimes[n-2] = total_time;
+	  slidetimeGroup[n-2] = x[n-2].alt;
 	  	// alert("Time spent img "+(n-1)+" = "+total_time/1000 +" sec");
 	  }
 	  start = new Date()
   var i;
-  var x = document.getElementsByClassName("mySlides");
   if (n > x.length) {
 	  slideIndex = 1
 	  if(supports_html5_storage())
 	  {
 		localStorage.setItem("slidetimes", JSON.stringify(slidetimes));
+		localStorage.setItem("slidetimeGroup", JSON.stringify(slidetimeGroup));
 	  }
 	  document.getElementById("endhref").click();
   }
