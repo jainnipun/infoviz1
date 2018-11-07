@@ -6,6 +6,11 @@
 <title>Information Visualization</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-database.js"></script>
+
 <style>
 .mySlides {
 display:none;
@@ -33,6 +38,24 @@ height:450px;
 
 <div id="result"></div>
 <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCRolKH0pd9NEidI7UQXcB-JFfEx-OlOSU",
+    authDomain: "inovizexperiment1.firebaseapp.com",
+    databaseURL: "https://inovizexperiment1.firebaseio.com",
+    projectId: "inovizexperiment1",
+    storageBucket: "inovizexperiment1.appspot.com",
+    messagingSenderId: "322963070671"
+  };
+  firebase.initializeApp(config);
+  
+</script>
+
+<script>
+  // Get a reference to the database service
+  var database = firebase.database();
+
+
 var slidetimes = JSON.parse(localStorage.getItem("slidetimes"));
 var slidetimeGroup = JSON.parse(localStorage.getItem("slidetimeGroup"));
 var slideSelections = JSON.parse(localStorage.getItem("slideSelections"));
@@ -72,6 +95,23 @@ text += "<li><b>" +"Total Group A Clicks = "+groupAClicks+" & Total Group B Clic
 text += "</ul>";
 
 document.getElementById("result").innerHTML = text;
+
+currentDate = new Date();
+currentTime = currentDate.getTime();
+
+ function writeUserData() {
+  firebase.database().ref('users/' + 'user_'+currentTime).set({
+	groupATimeSpent : groupATime,
+	groupBTimeSpent: groupBTime,
+	groupATotalClicks : groupAClicks,
+	groupBTotalClicks : groupBClicks,
+	slideTimes : slidetimes,
+	slideTimesGroups : slidetimeGroup,
+	slideSelections: slideSelections,
+	createdDate : " "+currentDate,
+  });
+}
+writeUserData();
 
 function startAgain()
 {
