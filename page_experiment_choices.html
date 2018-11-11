@@ -176,42 +176,78 @@ var img2 = document.getElementById('myImg2');
 
 if(currentIndex==0)
 {
-	img1.src = "images/1.jpeg";
-	img2.src = "images/2.jpeg";
+	img1.src = "images/benefits_image.png";
+	img2.src = "images/benefits_bar.png";
 	img1.alt = "Group A"
 	img2.alt = "Group B"
 }
 else if(currentIndex==1)
 {
-	img1.src = "images/3.jpeg";
-	img2.src = "images/4.jpeg";
-	img1.alt = "Group A"
-	img2.alt = "Group B"
+	img1.src = "images/chocolate_bar.png";
+	img2.src = "images/choclate_images.png";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
 }else if(currentIndex==2)
 {
-	img1.src = "images/5.jpeg";
-	img2.src = "images/6.jpeg";
+	img1.src = "images/animal_height_images.png";
+	img2.src = "images/animal_height_bar.png";
 	img1.alt = "Group A"
 	img2.alt = "Group B"
 }else if(currentIndex==3)
 {
-	img1.src = "images/7.jpeg";
-	img2.src = "images/8.jpeg";
-	img1.alt = "Group A"
-	img2.alt = "Group B"
+	img1.src = "images/christmas_retail_spending_in_australia_bar.png";
+	img2.src = "images/christmas_retail_spending_in_australia_image.png";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
 }else if(currentIndex==4)
 {
-	img1.src = "images/9.jpeg";
-	img2.src = "images/10.jpeg";
+	img1.src = "images/most_expensive_retail_locatons_image.png";
+	img2.src = "images/most_expensive_retail_locatons_bar.png";
 	img1.alt = "Group A"
 	img2.alt = "Group B"
 }else if(currentIndex==5)
 {
-	img1.src = "images/4.jpeg";
-	img2.src = "images/7.jpeg";
-	img1.alt = "Group A"
-	img2.alt = "Group B"
+	img1.src = "images/Domestics_beer_percentage_bar.png";
+	img2.src = "images/Domestics_beer_percentage_image.png";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
 }else if(currentIndex==6)
+{
+	img1.src = "images/sugar_bar.png";
+	img2.src = "images/sugar_images.png";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
+}else if(currentIndex==7)
+{
+	img1.src = "images/obesity_bar.png";
+	img2.src = "images/obesity_image.png";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
+}else if(currentIndex==8)
+{
+	img1.src = "images/coffee_bar.png";
+	img2.src = "images/coffee_image.png";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
+}else if(currentIndex==9)
+{
+	img1.src = "images/social_media_users_bar.png";
+	img2.src = "images/social_media_users_images.jpg";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
+}else if(currentIndex==10)
+{
+	img1.src = "images/Dairy_product_growth_rate_image.png";
+	img2.src = "images/Dairy_product_growth_rate_bar.png";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
+}else if(currentIndex==11)
+{
+	img1.src = "images/IceCream_bar.png";
+	img2.src = "images/IceCream.png";
+	img1.alt = "Group B"
+	img2.alt = "Group A"
+}else if(currentIndex==12)
 {
 	img1.src = "images/1.jpeg";
 	img2.src = "images/2.jpeg";
@@ -251,7 +287,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
     modal.style.display = "none";
-	if(currentIndex>=6)
+	if(currentIndex>=12)
 	{
 		localStorage.setItem("slideSelections", JSON.stringify(slideSelections));
 		document.getElementById("nexthref").click();
