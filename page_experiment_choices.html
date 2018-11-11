@@ -213,10 +213,10 @@ else if(currentIndex==1)
 	img2.alt = "Group A"
 }else if(currentIndex==6)
 {
-	img1.src = "images/sugar_bar.png";
-	img2.src = "images/sugar_images.png";
-	img1.alt = "Group B"
-	img2.alt = "Group A"
+	img1.src = "images/sugar_images.png";
+	img2.src = "images/sugar_bar.png";
+	img1.alt = "Group A"
+	img2.alt = "Group B"
 }else if(currentIndex==7)
 {
 	img1.src = "images/obesity_bar.png";
@@ -225,10 +225,10 @@ else if(currentIndex==1)
 	img2.alt = "Group A"
 }else if(currentIndex==8)
 {
-	img1.src = "images/coffee_bar.png";
-	img2.src = "images/coffee_image.png";
-	img1.alt = "Group B"
-	img2.alt = "Group A"
+	img1.src = "images/coffee_image.png";
+	img2.src = "images/coffee_bar.png";
+	img1.alt = "Group A"
+	img2.alt = "Group B"
 }else if(currentIndex==9)
 {
 	img1.src = "images/social_media_users_bar.png";
@@ -239,20 +239,14 @@ else if(currentIndex==1)
 {
 	img1.src = "images/Dairy_product_growth_rate_image.png";
 	img2.src = "images/Dairy_product_growth_rate_bar.png";
-	img1.alt = "Group B"
-	img2.alt = "Group A"
+	img1.alt = "Group A"
+	img2.alt = "Group B"
 }else if(currentIndex==11)
 {
 	img1.src = "images/IceCream_bar.png";
 	img2.src = "images/IceCream.png";
 	img1.alt = "Group B"
 	img2.alt = "Group A"
-}else if(currentIndex==12)
-{
-	img1.src = "images/1.jpeg";
-	img2.src = "images/2.jpeg";
-	img1.alt = "Group A"
-	img2.alt = "Group B"
 }
 }
 loadImages(currentIndex)
@@ -287,7 +281,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
     modal.style.display = "none";
-	if(currentIndex>=12)
+	if(currentIndex>=11)
 	{
 		localStorage.setItem("slideSelections", JSON.stringify(slideSelections));
 		document.getElementById("nexthref").click();
@@ -299,6 +293,5 @@ span.onclick = function() {
 	}
 }
 </script>
-
 </body>
 </html>
