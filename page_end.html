@@ -28,46 +28,49 @@ height:450px;
 <div class="w3-container">
   <h2>Information Visualization</h2>
 </div>
-<div id="questionaire" class="w3-center" >
+<div id="questionaire" class="w3-container" >
 
 <p>Q1. Which type of visualizations were more appealing to you?</p>
 <div>
-  <input type="radio" id="aesthetic" name="q1" value="aesthetic">
-  <label for="aesthetic">Aethetic ( One with Images and pictures )</label>
+  <input type="radio" id="aesthetic1" name="q1" value="aesthetic">
+  <label for="aesthetic1">Aethetic ( One with Images and pictures )</label>
   <br/>
-  <input type="radio" id="nonaesthetic" name="q1" value="nonaesthetic">
-  <label for="nonaesthetic">Non Aesthetic ( Simple Bar Chart)</label>
+  <input type="radio" id="nonaesthetic1" name="q1" value="nonaesthetic">
+  <label for="nonaesthetic1">Non Aesthetic ( Simple Bar Chart)</label>
   <br/>
-  <input type="radio" id="both" name="q1" value="both">
-  <label for="both">Both are equally clear.</label>
+  <input type="radio" id="both1" name="q1" value="both">
+  <label for="both1">Both are equally clear.</label>
 </div>
 
 
 <p>Q2. Which type of visualisations you feel were more clear in conveying the underlying data?</p>
 <div>
-  <input type="radio" id="aesthetic" name="q2" value="aesthetic">
-  <label for="aesthetic">Aethetic ( One with Images and pictures )</label>
+  <input type="radio" id="aesthetic2" name="q2" value="aesthetic">
+  <label for="aesthetic2">Aethetic ( One with Images and pictures )</label>
   <br/>
-  <input type="radio" id="nonaesthetic" name="q2" value="nonaesthetic">
-  <label for="nonaesthetic">Non Aesthetic ( Simple Bar Chart)</label>
+  <input type="radio" id="nonaesthetic2" name="q2" value="nonaesthetic">
+  <label for="nonaesthetic2">Non Aesthetic ( Simple Bar Chart)</label>
   <br/>
-  <input type="radio" id="both" name="q2" value="both">
-  <label for="both">Both are equally clear.</label>
+  <input type="radio" id="both2" name="q2" value="both">
+  <label for="both2">Both are equally clear.</label>
 </div>
 
 <p>Q3. Which types of visualisations More data can be recalled  from which type of visualisation?</p>
 <div>
-  <input type="radio" id="aesthetic" name="q3" value="aesthetic">
-  <label for="aesthetic">Aethetic ( One with Images and pictures )</label>
+  <input type="radio" id="aesthetic3" name="q3" value="aesthetic">
+  <label for="aesthetic3">Aethetic ( One with Images and pictures )</label>
   <br/>
-  <input type="radio" id="nonaesthetic" name="q3" value="nonaesthetic">
-  <label for="nonaesthetic">Non Aesthetic ( Simple Bar Chart)</label>
+  <input type="radio" id="nonaesthetic3" name="q3" value="nonaesthetic">
+  <label for="nonaesthetic3">Non Aesthetic ( Simple Bar Chart)</label>
   <br/>
-  <input type="radio" id="both" name="q3" value="both">
-  <label for="both">Both are equally clear.</label>
+  <input type="radio" id="both3" name="q3" value="both">
+  <label for="both3">Both are equally clear.</label>
 </div>
+<div class="w3-center">
   <button class="button" onclick="submit()">Submit</button>
+  </div>
 </div>
+
 <div id="endscreen" class="w3-center" style="display:none">
   <div class="w3-section">
   <p>Thank you for participating.</p><p>Experiment Ended</p>
@@ -94,13 +97,31 @@ height:450px;
 <script>
   // Get a reference to the database service
   var database = firebase.database();
-
+  var userid;
 
   function submit()
   {
-  		document.getElementById("questionaire").style.display = "none";
-		document.getElementById("endscreen").style.display = "block";
-	}
+	  var q1choice = document.querySelector('input[name = q1]:checked');
+	  var q2choice = document.querySelector('input[name = q2]:checked');
+	  var q3choice = document.querySelector('input[name = q3]:checked');
+	  var isAllAnswersSelected = false;
+	  
+	  if(q1choice == null || q2choice==null || q3choice==null)
+		{
+			isAllAnswersSelected = false;
+			alert('Please select an option for all question');
+		}
+		else
+		{
+		firebase.database().ref('users/' + userid).child('answers').set({
+			choice1 : q1choice.value,
+			choice2: q2choice.value,
+			choice3 : q3choice.value
+		  });
+			document.getElementById("questionaire").style.display = "none";
+			document.getElementById("endscreen").style.display = "block";
+		}
+}
 
 var slidetimes = JSON.parse(localStorage.getItem("slidetimes"));
 var slidetimeGroup = JSON.parse(localStorage.getItem("slidetimeGroup"));
@@ -147,7 +168,8 @@ currentDate = new Date();
 currentTime = currentDate.getTime();
 
  function writeUserData() {
-  firebase.database().ref('users/' + 'user_'+currentTime).set({
+ userid = 'user_'+currentTime;
+  firebase.database().ref('users/' + userid).set({
 	groupATimeSpent : groupATime,
 	groupBTimeSpent: groupBTime,
 	groupATotalClicks : groupAClicks,
