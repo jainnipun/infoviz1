@@ -14,7 +14,9 @@
 
 <div class="w3-container">
   <h2>Information Visualization Assignment 1 Pilot</h2>
-</div>
+
+<h3>Role Of Aesthetics In Information Visualization
+</h3>
 <p>
 	Designed and developed by:
 	<br/>
@@ -25,20 +27,47 @@
 	Neeti Jain
 	<br/>
 </p>
+<p>
+Aesthetic visualizations are the visualizations utilizing images, graphics or art to represent data.
+<br/>This experiment is divided in two parts.
+<br/>Instructions:
+<br/>Experiment 1: 
+<ul>
+<li>You will be shown two visualizations of same data.</li>
+<li>Select One to zoom</li>
+<li>Closing the zoomed image will load new data</li>
+</ul>
 
+Experiment 2: 
+<ul>
+<li>This experiment shows a mix of aestheric and non aesthetic images</li>
+<li>Spend time on pages which take your liking</li>
+<li>You cannot go back to previous visualizations</li>
+</ul>
 <div class="w3-center">
   <div class="w3-section">
-  <p>Start Experiment</p>
-   
-    <button class="button" onclick="start()">Start</button>
+  <button class="button" onclick="start()">Start</button>
+  <p>Click Button To Start Experiment</p>
+
 	<a id="startref" href="page_experiment_choices.html"/a>
   </div>  
 </div>
-
+</div>
 <script>
 function start()
 {
 document.getElementById("startref").click();
+}
+function supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+if(!supports_html5_storage())
+{
+	alert('HTML5 not supported by this browser. Please use newer versions of current browser or latest versions of chrome or mozilla');
 }
 localStorage.setItem("startIndex", 0);
 </script>
