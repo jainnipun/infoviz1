@@ -6,6 +6,7 @@
 <title>Information Visualization</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="styles.css">
 <style>
 .mySlides {
 
@@ -124,9 +125,12 @@
 
 <div class="w3-container">
   <h2>Information Visualization</h2>
-  <p class="mySlides"><b>Please Select a Visualization</b>	</p>
 </div>
-
+<div id="experimentspace">
+  <p class="mySlides">
+  <b>Please Click a Visualization to zoom</b>
+  <br/>Both visaulizations contain same data
+  </p>
 <div class="row">
 <div class="mySlides">
   <div class="column">
@@ -148,15 +152,37 @@
   <img class="modal-content" id="img01">
   <div id="caption"></div>
 </div>
+
+</div>
+</div>
+<div id="experimentended" style="display:none">
+Experiment 2: 
+<ul>
+<li>This experiment shows a mix of aesthetic and non aesthetic images</li>
+<li>Spend time on pages which interests you more</li>
+<li>You cannot go back to previous visualizations</li>
+</ul>
+<div class="w3-center">
+  <div class="w3-section">
+  <button class="button" onclick="startNext()">Start Experiment 2</button>
+  <p>Click Button To Start Experiment 2</p>
+	<a id="startref" href="page_experiment_choices.html"/a>
+  </div>  
+</div>
+</div>
     <a id="nexthref" href="page_experiment.html"  />
 
   <a id="endhref" href="page_end.html"  />
-</div>
 
 
 <script>
 function startNext() {
     document.getElementById("nexthref").click();
+}
+
+function start()
+{
+document.getElementById("startref").click();
 }
 
 var slideSelections = [];
@@ -284,7 +310,8 @@ span.onclick = function() {
 	if(currentIndex>=11)
 	{
 		localStorage.setItem("slideSelections", JSON.stringify(slideSelections));
-		document.getElementById("nexthref").click();
+		document.getElementById("experimentspace").style.display = "none";
+		document.getElementById("experimentended").style.display = "block";
 	}
 	else{
 		currentIndex += 1;
