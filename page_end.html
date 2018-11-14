@@ -10,6 +10,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-database.js"></script>
+<link rel="stylesheet" href="styles.css">
 
 <style>
 .mySlides {
@@ -27,8 +28,47 @@ height:450px;
 <div class="w3-container">
   <h2>Information Visualization</h2>
 </div>
+<div id="questionaire" class="w3-center" >
 
-<div class="w3-center">
+<p>Q1. Which type of visualizations were more appealing to you?</p>
+<div>
+  <input type="radio" id="aesthetic" name="q1" value="aesthetic">
+  <label for="aesthetic">Aethetic ( One with Images and pictures )</label>
+  <br/>
+  <input type="radio" id="nonaesthetic" name="q1" value="nonaesthetic">
+  <label for="nonaesthetic">Non Aesthetic ( Simple Bar Chart)</label>
+  <br/>
+  <input type="radio" id="both" name="q1" value="both">
+  <label for="both">Both are equally clear.</label>
+</div>
+
+
+<p>Q2. Which type of visualisations you feel were more clear in conveying the underlying data?</p>
+<div>
+  <input type="radio" id="aesthetic" name="q2" value="aesthetic">
+  <label for="aesthetic">Aethetic ( One with Images and pictures )</label>
+  <br/>
+  <input type="radio" id="nonaesthetic" name="q2" value="nonaesthetic">
+  <label for="nonaesthetic">Non Aesthetic ( Simple Bar Chart)</label>
+  <br/>
+  <input type="radio" id="both" name="q2" value="both">
+  <label for="both">Both are equally clear.</label>
+</div>
+
+<p>Q3. Which types of visualisations More data can be recalled  from which type of visualisation?</p>
+<div>
+  <input type="radio" id="aesthetic" name="q3" value="aesthetic">
+  <label for="aesthetic">Aethetic ( One with Images and pictures )</label>
+  <br/>
+  <input type="radio" id="nonaesthetic" name="q3" value="nonaesthetic">
+  <label for="nonaesthetic">Non Aesthetic ( Simple Bar Chart)</label>
+  <br/>
+  <input type="radio" id="both" name="q3" value="both">
+  <label for="both">Both are equally clear.</label>
+</div>
+  <button class="button" onclick="submit()">Submit</button>
+</div>
+<div id="endscreen" class="w3-center" style="display:none">
   <div class="w3-section">
   <p>Thank you for participating.</p><p>Experiment Ended</p>
     <button class="w3-button w3-light-grey" onclick="startAgain()">Start Again</button>
@@ -55,6 +95,12 @@ height:450px;
   // Get a reference to the database service
   var database = firebase.database();
 
+
+  function submit()
+  {
+  		document.getElementById("questionaire").style.display = "none";
+		document.getElementById("endscreen").style.display = "block";
+	}
 
 var slidetimes = JSON.parse(localStorage.getItem("slidetimes"));
 var slidetimeGroup = JSON.parse(localStorage.getItem("slidetimeGroup"));
