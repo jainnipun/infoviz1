@@ -19,7 +19,6 @@ height:420px;
 
 <div class="w3-container">
   <h2>Information Visualization</h2>
-  <p>A Visualization</p>
 </div>
 
 <div class="w3-content" style="max-width:800px;">
@@ -62,7 +61,6 @@ function supports_html5_storage() {
   }
 }
 
-
 var slideIndex = 1;
 var startT = new Date();
 var numberscreated = false;
@@ -78,19 +76,23 @@ function createNumbers() {
 			var btn = document.createElement("BUTTON");
 			var t = document.createTextNode(i+1);
 			btn.className += "w3-button demo";
+			btn.setAttribute("onclick", "showMessage()");
 			//btn.setAttribute("onclick", "currentDiv("+(i+1)+")");
 			btn.appendChild(t);
 			btndiv.appendChild(btn);
 		}
 	numberscreated = true;
 	}
-  
 }
 function plusDivs(n) {
   showDivs(slideIndex += n);
 }
 function currentDiv(n) {
   showDivs(slideIndex = n);
+}
+function showMessage()
+{
+alert('Please navigate using next button only. You cannot go back or forward. Numbers shown for information purposes only.')
 }
 function showDivs(n) {
   var x = document.getElementsByClassName("mySlides");
